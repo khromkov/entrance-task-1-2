@@ -6,7 +6,7 @@ export function initMap(ymaps, containerId) {
   const myMap = new ymaps.Map(containerId, {
     center: [55.76, 37.64],
     controls: [],
-    zoom: 10
+    zoom: 10,
   });
 
   const objectManager = new ymaps.ObjectManager({
@@ -16,7 +16,7 @@ export function initMap(ymaps, containerId) {
     clusterDisableClickZoom: false,
     geoObjectOpenBalloonOnClick: false,
     geoObjectHideIconOnBalloonOpen: false,
-    geoObjectBalloonContentLayout: getDetailsContentLayout(ymaps)
+    geoObjectBalloonContentLayout: getDetailsContentLayout(ymaps),
   });
 
   myMap.geoObjects.add(objectManager);
@@ -44,10 +44,8 @@ export function initMap(ymaps, containerId) {
   const listBoxControl = createFilterControl(ymaps);
   myMap.controls.add(listBoxControl);
 
-  var filterMonitor = new ymaps.Monitor(listBoxControl.state);
+  const filterMonitor = new ymaps.Monitor(listBoxControl.state);
   filterMonitor.add('filters', filters => {
-    objectManager.setFilter(
-      obj => filters[obj.isActive ? 'active' : 'defective']
-    );
+    objectManager.setFilter(obj => filters[obj.isActive ? 'active' : 'defective']);
   });
 }
