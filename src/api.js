@@ -1,4 +1,14 @@
+/* global IS_PRODUCTION */
+
+/*
+eslint-disable global-require
+*/
+
 import { mapServerData } from './mappers';
+
+if (IS_PRODUCTION) {
+  require('../utils/fake-backend');
+}
 
 export function loadList() {
   return fetch('/api/stations')
