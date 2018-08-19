@@ -3,6 +3,8 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
+    "build": "NODE_ENV=production ./node_modules/.bin/webpack",
+    "deploy": "./node_modules/.bin/gh-pages -d public",
     "start": "webpack-dev-server"
   },
   "devDependencies": {
@@ -10,6 +12,7 @@
     "eslint-config-airbnb-base": "^13.0.0",
     "eslint-plugin-import": "^2.13.0",
     "faker": "^4.1.0",
+    "gh-pages": "^1.2.0",
     "webpack": "^4.16.0",
     "webpack-cli": "^3.0.8",
     "webpack-dev-server": "^3.1.4"
