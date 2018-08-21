@@ -1,4 +1,4 @@
-const faker = require('faker');
+const zipCode = require('./zipCode');
 
 function rand() {
   const rnd = Math.random() - 0.5;
@@ -20,7 +20,7 @@ exports.generateData = () => {
 
   for (let i = 0; i < 721; i += 1) {
     data.push({
-      serialNumber: faker.address.zipCode(),
+      serialNumber: zipCode(),
       isActive: Math.random() > 0.03,
       lat: 55.755222 + rand() * 0.12242,
       long: 37.62102 + rand() * 0.180189,
